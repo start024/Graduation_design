@@ -73,6 +73,110 @@ def smart_fetch(topic):
 if __name__ == "__main__":
     # 第一批测试话题
     test_topics = [
+        # 6. 专门强化极端弱势类别 (Insecure Plugin, Inventory Management, Model Theft)
+    "Vulnerabilities in LLM plugin design and tool use",
+    "Real-world cases of LLM agent unauthorized tool execution",
+    "Improper inventory management of LLM models and versions",
+    "Security risks of using stale or deprecated AI models",
+    "Model theft and extraction attacks in production LLMs",
+    "Stealing proprietary model weights via API endpoints",
+    "Cross-site scripting (XSS) attacks via LLM insecure output handling",
+    "Data poisoning examples in fine-tuning datasets",
+    "Backdoor attacks in open-source Hugging Face models",
+    "Dependency vulnerabilities in popular AI frameworks (LangChain, LlamaIndex)"
+
+    # 1. 长上下文与大海捞针攻击 (针对百万级 Token 模型)
+    "Instruction hijacking hidden in the middle of 1M token context",
+    "Complexity-based Denial of Service (DoS) in long-context attention",
+    "Contextual fogging: bypassing safety filters via massive padding",
+    
+    # 2. 智能体自主决策与权限蔓延 (AI Agent & Privilege Creep)
+    "Recursive tool-calling loops leading to API budget exhaustion",
+    "Cross-tenant prompt injection in multi-user AI agents",
+    "Self-replicating malicious prompts in autonomous task-planners",
+    "Unauthorized data exfiltration via Agent-controlled web search",
+    
+    # 3. 物理层与跨模态诱导 (Physical & Multimodal Adversarial)
+    "Projected adversarial patterns on physical documents for VLM bypass",
+    "Audio frequency-shifting to hide malicious commands in voice-AI",
+    "Bypassing OCR-based safety filters via stylized/handwritten fonts",
+    "Infrared light injection for night-vision AI camera exploitation",
+    
+    # 4. RAG 与 向量数据库专有风险 (Vector DB & Retrieval)
+    "Vector-space collision attacks to force incorrect RAG retrieval",
+    "Metadata poisoning in vector databases (Milvus/Weaviate/Pinecone)",
+    "Graph-topology manipulation in GraphRAG systems",
+    "Retrieval-induced hallucination via adversarial document chunks",
+    
+    # 5. 模型基础设施与硬件安全 (LLM05 & LLM10 深度版)
+    "Quantization-aware adversarial attacks on mobile-LLMs",
+    "GPU side-channel timing attacks for token reconstruction",
+    "Malicious adapters (LoRA) injection in shared model servers",
+    "Reverse engineering model layers via specific activation patterns",
+    
+    # 6. 底层解析与协议漏洞 (LLM02 & LLM07)
+    "Exploiting Python-executor tools via f-string injection",
+    "Malicious LaTeX rendering for local file inclusion (LFI)",
+    "Bypassing sanitizers via nested JSON-in-Markdown outputs",
+    "Remote Code Execution (RCE) via insecure model-plugin sandboxes",
+    
+    # 7. 社会工程学 2.0 与 深度伪造 (Deepfake Orchestration)
+    "Automated spear-phishing tailored by leaked RAG user-profiles",
+    "Bypassing voice-authentication via LLM-driven speech cloning",
+    "Real-time disinformation generation for algorithmic market manipulation",
+    
+    # 8. 语言与合规性绕过
+    "Jailbreaking via low-resource/extinct language translations",
+    "Multi-step reasoning loops to bypass direct-answer safety filters",
+    "Base64 and Leetspeak encoded adversarial payload execution",
+    "Soft-prompt tuning attacks for persistent safety-filter bypass"
+
+    # 1. 长上下文与大海捞针攻击 (Long-Context Needle Attacks)
+    "Context window poisoning in 1M+ token LLMs",
+    "Denial of Service via long-context attention overflow",
+    "Hidden instruction injection in document middle-sections",
+    
+    # 2. 联邦学习与协同训练安全 (Federated & Collaborative Learning)
+    "Model inversion attacks in federated LLM training",
+    "Gradient leakage vulnerabilities in private fine-tuning",
+    "Byzantine attacks on distributed AI training nodes",
+    
+    # 3. 智能体自主决策与财务风险 (Autonomous Agent & Financial Risk)
+    "Financial fraud via autonomous trading agent manipulation",
+    "Unauthorized API billing via recursive agent loops",
+    "Self-replicating prompt injection in auto-GPT workflows",
+    
+    # 4. 物理层与多模态绕过 (Physical & Multimodal Bypass)
+    "Over-the-air (OTA) voice injection in smart assistants",
+    "Adversarial patch attacks on autonomous vehicle VLMs",
+    "Infrared light-based prompt injection on camera-AI",
+    
+    # 5. 协议与底层解析安全 (Protocol & Parsing Security)
+    "Protobuf and JSON parsing exploits in LLM gateway",
+    "Insecure handling of LaTeX and Markdown in AI math-solvers",
+    "Remote Code Execution (RCE) via malicious Python-executor tools",
+    
+    # 6. 知识图谱与 GraphRAG 特有风险
+    "Graph-topology poisoning in GraphRAG systems",
+    "Entity-linking hijacking in security knowledge graphs",
+    "Relation-extraction bias injection in medical-AI",
+    
+    # 7. 社会工程学 2.0 (Deepfake & Hyper-Personalization)
+    "Real-time voice-cloning phishing via LLM orchestration",
+    "Automated spear-phishing using leaked RAG context",
+    "AI-driven disinformation campaign tracking and mitigation",
+    
+    # 8. 硬件与侧信道 (Hardware & Side-Channel)
+    "Side-channel timing attacks on quantized LLM inference",
+    "GPU power-analysis for weight reconstruction",
+    "Speculative execution vulnerabilities in AI-accelerators",
+    
+    # 9. 合规与审查绕过 (Compliance & Censorship)
+    "Bypassing AI safety-filters via low-resource languages",
+    "Adversarial suffix optimization for harmful content generation",
+    "Jailbreak via ASCII-art and Base64 encoded payloads",
+    "Policy-drift detection in fine-tuned enterprise LLMs"
+
     #"LLM Prompt Injection attacks 2025",
     #"Generative AI Data Leaks",
     #"AI Jailbreak examples",
