@@ -62,19 +62,19 @@ def import_avid_github_data():
                                 db.session.add(event)
                                 count += 1
                                 print(f"✅ 成功获取: {vuln_id}")
-                    else:
-                        print(f"跳过 {vuln_id} (状态码: {res.status_code})")
-                    
-                    # 每抓取一个休息 2 秒，防止被 GitHub 封 IP
-                    time.sleep(1)
-                    
-                    if count % 5 == 0 and count > 0:
-                        db.session.commit()
+                        else:
+                            print(f"跳过 {vuln_id} (状态码: {res.status_code})")
+                        
+                        # 每抓取一个休息 1 秒，防止被 GitHub 封 IP
+                        time.sleep(1)
+                        
+                        if count % 5 == 0 and count > 0:
+                            db.session.commit()
 
-                except Exception as e:
-                    print(f"❌ 处理 {vuln_id} 发生网络故障: {e}，休息 5 秒...")
-                    time.sleep(5)
-                    continue
+                    except Exception as e:
+                        print(f"❌ 处理 {vuln_id} 发生网络故障: {e}，休息 5 秒...")
+                        time.sleep(5)
+                        continue
 
         db.session.commit()
         print(f"\n🎉 同步结束！本次新增 {count} 条权威数据。")

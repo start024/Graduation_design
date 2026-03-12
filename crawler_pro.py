@@ -22,8 +22,8 @@ def crawl_avid_blog():
                 if title and not SecurityEvent.query.filter_by(title=title).first():
                     new_event = SecurityEvent(
                         title=title,
-                        source_platform="AVID-ML",
-                        raw_content=f"详情链接: {link}",
+                        source="AVID-ML",
+                        content=f"详情链接: {link}",
                         category="Others", # 爬虫初步分类设为 Others，后续靠 NLP 修正 
                         risk_level="中"
                     )

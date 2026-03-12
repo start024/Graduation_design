@@ -33,8 +33,8 @@ def train_and_classify():
             text_vec = vectorizer.transform([event.title + " " + event.content])
             prediction = model.predict(text_vec)[0]
             
-            # 更新分类
-            event.category = f"NLP: {prediction}" 
+            # 更新分类 (直接赋予真实的类别，不加前缀，避免图表分裂)
+            event.category = prediction 
         
         db.session.commit()
         print(f"机器学习分类完成，更新了 {len(others_events)} 条数据。")
