@@ -60,7 +60,7 @@ def standardize_and_classify():
             event.category = prediction # 直接应用标准 OWASP 标签
 
         db.session.commit()
-        print(f"✅ 成功完成基于 OWASP 框架的自动打标，处理了 {len(target_events)} 条事件。")
+        print(f"SUCCESS: 成功完成基于 OWASP 框架的自动打标，处理了 {len(target_events)} 条事件。")
 
 if __name__ == "__main__":
     standardize_and_classify()
