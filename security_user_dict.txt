@@ -1,0 +1,16 @@
+Prompt Injection 10 n
+提示注入 10 n
+Model Jailbreak 10 n
+越狱攻击 10 n
+Data Exposure 10 n
+敏感信息泄露 10 n
+Supply Chain 10 n
+供应链风险 10 n
+Training Data Poisoning 10 n
+数据投毒 10 n
+Insecure Output Handling 10 n
+RAG 10 n
+思维链 10 n
+Chain of Thought 10 n
+KV Cache 10 n
+o1-preview 10 n
