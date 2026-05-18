@@ -17,6 +17,7 @@
 
 ### 项目目录结构
 
+```text
 ├── weixin_xiaochengxu/     # 微信小程序前端代码（包含 ECharts 态势感知驾驶舱）
 ├── ablation_study_dictionary.py  # 消融实验模块（验证安全专用词典在分词策略中的必要性）
 ├── ai_collector.py         # 主动红队生成模块（基于 Gemini API 自动合成前沿未知安全对抗样本）
@@ -36,7 +37,8 @@
 ├── requirements.txt        # 后端依赖 Python 库列表
 └── README.md               # 本项目说明文档
 
-###核心系统工作流程
+
+### 核心系统工作流程
 - **多源采集（Perception）**：run_scheduler.py 周期性唤醒进程，多源抓取 NVD 与 AVID 上的 LLM 漏洞，同时通过 ai_collector.py 诱导 Gemini 自动批量合成前沿对抗语料，无感知写入数据库缓冲区。
 - **智能打标（Decision）**：一旦新数据写入，final_classifier.py 自动加载 security_user_dict.txt 安全词典进行 jieba 分词，通过 TF-IDF 映射为特征矩阵，利用已部署的逻辑回归平衡分类器解算 OWASP 标准的概率分布，并原子级更新分类标签。
 - **敏捷触达（Action）**：移动端微信小程序调用 app.py 的 RESTful 端点，将最新的结构化安全情报和危害评级以 ECharts 数据图表、PoC 安全预览等形式丝滑渲染呈现，并触发微信订阅预警消息。
