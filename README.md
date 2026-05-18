@@ -1,6 +1,6 @@
 # Design and Development of a WeChat Mini Program for Security Incident Alerting in Large Language Models
 
-本项目采用前后端分离架构，后端基于 Python 的 Flask 框架开发，负责 NVD 漏洞拉取、AVID 情报同步、Gemini API 驱动的 AI 红队对抗样本合成，以及 TF-IDF 与逻辑回归模型自动标注等核心逻辑，依托 Python 在 NLP 与自动化领域的优势，构建低延迟、高稳定的大模型安全态势感知系统。前端基于微信小程序原生框架，使用 JavaScript、WXML、WXSS 实现交互与界面，并集成 ECharts 动态展示全球大模型安全事件分布与趋势，打造即用即走的移动端安全分析工具，适用于企业级大模型合规审计、AIGC 风险监控与智能体权限防御等场景。
+本项目采用前后端分离架构，后端基于 Python 的 Flask 框架开发，负责 NVD 漏洞拉取、AVID 情报同步、Gemini API 驱动 of AI 红队对抗样本合成，以及 TF-IDF 与逻辑回归模型自动标注等核心逻辑，依托 Python 在 NLP 与自动化领域的优势，构建低延迟、高稳定的大模型安全态势感知系统。前端基于微信小程序原生框架，使用 JavaScript、WXML、WXSS 实现交互与界面，并集成 ECharts 动态展示全球大模型安全事件分布与趋势，打造即用即走的移动端安全分析工具，适用于企业级大模型合规审计、AIGC 风险监控与智能体权限防御等场景。
 
 ---
 
@@ -25,21 +25,23 @@
 ├── scheduler.log           # 调度器自动化运行历史日志
 ├── requirements.txt        # 后端依赖 Python 库列表
 └── README.md               # 本项目说明文档
+```
 
+---
 
 ### 核心系统工作流程
-- **多源采集（Perception）**：run_scheduler.py 周期性唤醒进程，多源抓取 NVD 与 AVID 上的 LLM 漏洞，同时通过 ai_collector.py 诱导 Gemini 自动批量合成前沿对抗语料，无感知写入数据库缓冲区。
-- **智能打标（Decision）**：一旦新数据写入，final_classifier.py 自动加载 security_user_dict.txt 安全词典进行 jieba 分词，通过 TF-IDF 映射为特征矩阵，利用已部署的逻辑回归平衡分类器解算 OWASP 标准的概率分布，并原子级更新分类标签。
-- **敏捷触达（Action）**：移动端微信小程序调用 app.py 的 RESTful 端点，将最新的结构化安全情报和危害评级以 ECharts 数据图表、PoC 安全预览等形式丝滑渲染呈现，并触发微信订阅预警消息。
 
+- **多源采集（Perception）**：`run_scheduler.py` 周期性唤醒进程，多源抓取 NVD 与 AVID 上的 LLM 漏洞，同时通过 `ai_collector.py` 诱导 Gemini 自动批量合成前沿对抗语料，无感知写入数据库缓冲区。
+- **智能打标（Decision）**：一旦新数据写入，`final_classifier.py` 自动加载 `security_user_dict.txt` 安全词典进行 jieba 分词，通过 TF-IDF 映射为特征矩阵，利用已部署的逻辑回归平衡分类器解算 OWASP 标准的概率分布，并原子级更新分类标签。
+- **敏捷触达（Action）**：移动端微信小程序调用 `app.py` 的 RESTful 端点，将最新的结构化安全情报和危害评级以 ECharts 数据图表、PoC 安全预览等形式丝滑渲染呈现，并触发微信订阅预警消息。
 
 ---
 
 ### 项目声明
 
-- **项目名称**：大模型安全态势感知与自动化分类告警系统
+- **项目名称**：Design and Development of a WeChat Mini Program for Security Incident Alerting in Large Language Models
 - **项目作者**：CHU KIN YUNG
 - **作者单位**：暨南大学网络空间安全学院
-- **开发语言**：Python / JavaScript
-- **核心框架**：Flask (后端) / 微信小程序原生框架 (前端)
-- **核心技术**：TF-IDF 文本向量化、逻辑回归多分类（Logistic Regression）、生成式 AI 红队对抗合成、多源异构爬虫、多进程自动化调度、ECharts 动态数据可视化
+- **开发语言**：Python, JavaScript
+- **核心框架**：Flask, 微信小程序原生框架
+- **核心技术**：TF-IDF 文本向量化、逻辑回归多分类 (Logistic Regression)、生成式 AI 红队对抗合成 (Gemini API)、多源异步爬虫、多进程自动化调度、ECharts 动态数据可视化
