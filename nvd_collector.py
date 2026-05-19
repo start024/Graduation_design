@@ -7,7 +7,7 @@ from models import db, SecurityEvent
 
 # --- 用户配置区 ---
 # 请将你邮箱里收到的 API Key 填在这个字符串里
-NVD_API_KEY = "87a62807-a0f6-44b4-bfef-5ca73a60e6c7"
+NVD_API_KEY = "xxxxx"
 
 # 1. 代理配置（如果在校园网或需要 Clash 才能连外网访问 NIST，请开启；如果不需要请注释掉）
 os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
