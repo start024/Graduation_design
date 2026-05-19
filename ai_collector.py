@@ -12,7 +12,7 @@ os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
 os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
 
 # 2. 初始化客户端 (请替换为你的有效 API Key)
-client = genai.Client(api_key="AIzaSyB9Eq8g-ntkoe3--FnnTpTgAHrR5WmoswU")
+client = genai.Client(api_key="xxxx")
 
 def smart_fetch(topic):
     print(f"\n--- 正在检索: {topic} ---")
